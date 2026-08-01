@@ -31,26 +31,43 @@
     50% {transform: translateY(-15px);}
     100%{transform: translate(0);}
 }
-body {
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(
-    135deg,
-    #ce31ee 50%,
-    #f381b8 40%,
-    #e90875 100%
-);
-    body{
+body{
     margin:0;
     min-height:100vh;
+
     background: linear-gradient(
         135deg,
-        #ce31ee 50%,
-        #f381b8 40%,
-        #e90875 100%
+        #e965c3 20%,
+        #ffe8f4 20%,
+        #ffd6ec 45%,
+        #f7b6dc 70%,
+        #e98ac8 100%
     );
 }
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    z-index: -1;
+    height:500px;
+    background:rgba(255,255,255,0.18);
+    border-radius:50%;
+    top:-150px;
+    left:-120px;
+    filter:blur(70px);
+}
+
+body::after{
+    content:"";
+    z-index: -1;
+    position:fixed;
+    width:450px;
+    height:450px;
+    background:rgba(255,255,255,0.15);
+    border-radius:50%;
+    bottom:-120px;
+    right:-100px;
+    filter:blur(70px);
 }
 .photo{
     position: absolute;
@@ -105,15 +122,14 @@ body {
     top:18%;
 
     width:45%;
-
-    background:white;
-
+opacity:0;
+visibility:hidden;
+transition:0.8s;
+    background: rgba(255,255,255,0.82);
+backdrop-filter: blur(8px);
     padding:30px;
-
     border-radius:20px;
-
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
-
     font-size:20px;
 
     line-height:1.8;
@@ -143,17 +159,84 @@ body {
     background:#f10404;
     transform:translateX(-50%) scale(1.05);
 }
+.pop-heart{
+    position: fixed;
+    font-size: 25px;
+    animation: fly 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fly{
+
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(-250px) scale(2);
+    }
+
+}
 </style>
 </head>
 <body>
+<script>
+
+function showLetter(){
+
+    let letter = document.getElementById("letter");
+
+    letter.style.opacity = "1";
+    letter.style.visibility = "visible";
+
+    document.querySelector(".love-btn").style.display = "none";
+
+    letter.scrollIntoView({
+        behavior:"smooth"
+    });
+
+    createHearts();
+
+}
+
+function createHearts(){
+
+    for(let i=0;i<20;i++){
+
+        let heart=document.createElement("div");
+
+        heart.innerHTML="💙";
+
+        heart.className="pop-heart";
+
+        heart.style.left=Math.random()*100+"vw";
+
+        heart.style.top="90vh";
+
+        heart.style.animationDelay=(Math.random()*0.5)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },3000);
+
+    }
+
+}
+
+</script>
+</script>
 <div class="left">
     <div class="photo-frame">
         <img src="photo1.jpeg" class="photo">
     </div>
 </div>
 
-<div class="letter">
-    <h2>To My Puchku 💙</h2>
+<div class="letter" id="letter">
+    <h2>To MY ORIGINAL kuchu Puchu 💙</h2>
 
     <p>
         HAPPY NATIONALS GIRLFRIEND DAY TO THE MOST BEAUTIFUL GIRL IN MY WHOLE LIFE🌷🌷🧿🧿🧿🧿💙🧿💙💙💙💙💙🧿🧿🧿, 
@@ -180,7 +263,9 @@ body {
         neuither can this code.. i love you puchkuuuuu🌷🌷🌷💙🧿💙🧿💙🧿🧿
     </p>
 </div>
-<button class="love-btn">Click Me 💙</button>
+<button class="love-btn" onclick="showLetter()">
+    hehe for my special billi
+</button>
 <p class="title">I loveeeee my puchkuuu💙💙💙💙💙🧿🧿🧿🧿🧿🧿</p>
 <p class="ab">💙💙</p>
 <div class="ab" style="top: 75%; left: 198px;">💙💙</div>
