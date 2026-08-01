@@ -133,6 +133,7 @@ backdrop-filter: blur(8px);
     font-size:20px;
 
     line-height:1.8;
+    max-width: 700px;
 }
 .love-btn{
     position:absolute;
@@ -179,10 +180,73 @@ backdrop-filter: blur(8px);
     }
 
 }
+.secret-btn{
+
+    display:block;
+    margin:30px auto;
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,0.55);
+
+    backdrop-filter:blur(18px);
+
+    color:#e90875;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,.8);
+
+    transition:.3s;
+}
+
+.secret-btn:hover{
+
+    transform:scale(1.05);
+
+    background:rgba(255,255,255,.8);
+
+}
+
+.secret{
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.8s;
+
+    text-align:center;
+
+    font-size:30px;
+
+    margin-top:30px;
+
+}
 </style>
 </head>
 <body>
 <script>
+    function revealSecret(){
+
+    let secret=document.getElementById("secret");
+
+    secret.style.opacity="1";
+
+    secret.style.visibility="visible";
+
+    document.querySelector(".secret-btn").style.display="none";
+
+}
 
 function showLetter(){
 
@@ -262,6 +326,36 @@ function createHearts(){
         words can never explain the amount of love i have for you,
         neuither can this code.. i love you puchkuuuuu🌷🌷🌷💙🧿💙🧿💙🧿🧿
     </p>
+    <hr style="margin-top:40px;">
+
+<h2 style="text-align:center;">
+Did you THOUGHT IT WAS OVER?
+</h2>
+
+<p style="text-align:center;">
+Hahaha... nope.
+</p>
+
+<p style="text-align:center;">
+I actually planned this ending TWO days ago...
+</p>
+
+<p style="text-align:center;">
+And now...
+</p>
+
+<h2 style="text-align:center;">
+For my final act of surprise...
+</h2>
+
+<button class="secret-btn" onclick="revealSecret()">
+☁️ One Last Secret ☁️
+</button>
+
+<p id="secret" class="secret">
+📖 Check your school diary.<br>
+<strong>Page 89. ❤️</strong>
+</p>
 </div>
 <button class="love-btn" onclick="showLetter()">
     hehe for my special billi
