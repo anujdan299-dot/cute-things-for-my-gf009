@@ -52,18 +52,53 @@ body {
 }
 .photo{
     position: absolute;
-    left: 5%;
-    top: 25%;
-    width: 280px;
-    border-radius: 25px;
-    border: 6px solid #ff4fa0;
-    box-shadow: 0 0 25px #ff6fb5;
+    left: 6%;
+    top: 22%;
+    animation: photoFloat 4s ease-in-out infinite;;
+    width: 300px;
+    .photo{
+    width:300px;
+    border-radius:12px;
+    display:block;
 }
+    transition: 0.3s;
+}
+.photo:hover{
+    transform: scale(1.05);
+}
+@keyframes photoFloat{
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-8px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
+}
+.photo-frame{
+    position: absolute;
+    left: 6%;
+    top: 20%;
+
+    background: white;
+    padding: 12px 12px 40px 12px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    transform: rotate(-5deg);
 }
 </style>
 </head>
 <body>
-    <img src="images/photo1.jpeg" class="photo">
+<div class="photo-frame">
+    <img src="photo1.jpeg" class="photo">
+</div>
 <p class="title">I loveeeee my puchkuuu💙💙💙💙💙🧿🧿🧿🧿🧿🧿</p>
 <div class="title" style="top: 35%; font-style: italic;">Happy Girlfriend's Day to The Most Beautiful Girlfriend of All Time💙💙🧿🧿💙🧿💙🧿</div>
 <P class="heart">🌷🌷🌷🌷🌷🌷🌷🌷🌷</P>
